@@ -121,7 +121,7 @@ clear
     echo -e "$BGreen 1. Use Domain Random $NC"
     echo -e "$BGreen 2. Choose Your Own Domain $NC"
     echo -e "$BYellow----------------------------------------------------------$NC"
-    read -rp " Pilih domain yang akan kamu pakai : " dns
+    read -rp " pick ramdom domain or choose your own domain : " dns
 	if test $dns -eq 1; then
     clear
     apt install jq curl -y
