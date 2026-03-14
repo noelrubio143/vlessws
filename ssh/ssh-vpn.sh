@@ -273,7 +273,7 @@ netfilter-persistent reload
 # download script
 cd /usr/bin
 # menu
-wget -O menu "https://raw.githubusercontent.com/givpn/AutoScriptXray/master/menu/menu.sh"
+wget -O menu "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/menu.sh"
 wget -O m-vmess "https://raw.githubusercontent.com/givpn/AutoScriptXray/master/menu/m-vmess.sh"
 wget -O m-vless "https://raw.githubusercontent.com/givpn/AutoScriptXray/master/menu/m-vless.sh"
 wget -O running "https://raw.githubusercontent.com/givpn/AutoScriptXray/master/menu/running.sh"
