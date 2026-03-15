@@ -2,10 +2,10 @@
 # cari apa
 clear
 apt install jq curl -y
-DOMAIN=mlml.amberss.site
+DOMAIN=amberss.site
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=xray-${sub}.mlml.amberss.site
-CF_ID=givpn11@gmail.com
+SUB_DOMAIN=xray-${sub}.amberss.site
+CF_ID=jieromvilla23@gmail.com
 CF_KEY=0f738ffa9cdbbb44a0a0cd77c0411fa12343e
 set -euo pipefail
 IP=$(wget -qO- ifconfig.me);
