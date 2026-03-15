@@ -116,12 +116,11 @@ echo "IP=" >> /var/lib/ipvps.conf
 
 echo ""
 clear
-    echo -e "$BBlue                     SETUP DOMAIN VPS     $NC"
-    echo -e "$BYellow----------------------------------------------------------$NC"
-    echo -e "$BGreen 1. Use Domain Random $NC"
-    echo -e "$BGreen 2. Choose Your Own Domain $NC"
-    echo -e "$BYellow----------------------------------------------------------$NC"
-    read -rp " pick ramdom domain or choose your own domain : " dns
+    echo -e "$BBlue    SETUP DOMAIN VPS     $NC"
+    echo -e "$BYellow-----------------------$NC"
+    echo -e "$BGreen 2. Your Domain $NC"
+    echo -e "$BYellow-----------------------$NC"
+    read -rp " put your domain : " dns
 	if test $dns -eq 1; then
     clear
     apt install jq curl -y
