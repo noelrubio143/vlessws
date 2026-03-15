@@ -120,7 +120,7 @@ clear
     echo -e "$BYellow-----------------------$NC"
     echo -e "$BGreen 2. Your Domain $NC"
     echo -e "$BYellow-----------------------$NC"
-    read -rp " put your domain : " dns
+    read -rp " TYPE 2 : " dns
 	if test $dns -eq 1; then
     clear
     apt install jq curl -y
