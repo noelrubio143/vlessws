@@ -1,4 +1,4 @@
- [Step Install]
+# [Step Install]
 - Step 1 for (debian) please update first
 ```
 apt update && apt upgrade -y && reboot
