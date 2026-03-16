@@ -19,7 +19,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Global variables
-SCRIPT_URL="https://raw.githubusercontent.com/noelrubio143/sliptream/refs/heads/main/slipstream-rust-deploy.sh"
+SCRIPT_URL="https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/slipstream-rust-deploy.sh"
 INSTALL_DIR="/usr/local/bin"
 CONFIG_DIR="/etc/slipstream-rust"
 SYSTEMD_DIR="/etc/systemd/system"
@@ -29,7 +29,7 @@ SCRIPT_INSTALL_PATH="/usr/local/bin/slipstream-rust-deploy"
 BUILD_DIR="/opt/slipstream-rust"
 REPO_URL="https://github.com/Mygod/slipstream-rust.git"
 SLIPSTREAM_PORT="5300"
-RELEASE_URL="https://github.com/noelrubio143/sliptream/tree/main"
+RELEASE_URL="https://github.com/noelrubio143/vlessws/tree/main"
 
 # Global variable to track if update is available
 UPDATE_AVAILABLE=false
