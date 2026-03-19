@@ -161,67 +161,10 @@ screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7700 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7800 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500
 
-# setting port ssh
-cd
-sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-sed -i '/Port 22/a Port 500' /etc/ssh/sshd_config
-sed -i '/Port 22/a Port 40000' /etc/ssh/sshd_config
-sed -i '/Port 22/a Port 51443' /etc/ssh/sshd_config
-sed -i '/Port 22/a Port 58080' /etc/ssh/sshd_config
-sed -i '/Port 22/a Port 6666' /etc/ssh/sshd_config
-sed -i '/Port 22/a Port 200' /etc/ssh/sshd_config
-sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
-/etc/init.d/ssh restart
 
-echo "=== Install Dropbear ==="
-# install dropbear
-apt -y install dropbear
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"/g' /etc/default/dropbear
-echo "/bin/false" >> /etc/shells
-echo "/usr/sbin/nologin" >> /etc/shells
-/etc/init.d/ssh restart
-/etc/init.d/dropbear restart
-
-cd
-# install stunnel
-apt install stunnel4 -y
-cat > /etc/stunnel/stunnel.conf <<-END
-cert = /etc/stunnel/stunnel.pem
-client = no
-socket = a:SO_REUSEADDR=1
-socket = l:TCP_NODELAY=1
-socket = r:TCP_NODELAY=1
-
-[dropbear]
-accept = 443
-connect = 127.0.0.1:22
-
-[dropbear]
-accept = 443
-connect = 127.0.0.1:109
-
-[ws-stunnel]
-accept = 2096
-connect = 700
-
-[openvpn]
-accept = 443
 connect = 127.0.0.1:1194
 
 END
-
-# make a certificate
-openssl genrsa -out key.pem 2048
-openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
--subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
-cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
-
-# konfigurasi stunnel
-sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
-/etc/init.d/stunnel4 restart
-
 
 # install fail2ban
 apt -y install fail2ban
@@ -281,32 +224,15 @@ wget -O clearcache "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/
 wget -O m-ssws "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/m-ssws.sh"
 wget -O m-trojan "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/m-trojan.sh"
 
-# menu ssh ovpn
-wget -O m-sshovpn "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/m-sshovpn.sh"
-wget -O usernew "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/trial.sh"
-wget -O renew "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/renew.sh"
-wget -O hapus "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/hapus.sh"
-wget -O cek "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/cek.sh"
-wget -O member "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/member.sh"
-wget -O delete "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/delete.sh"
-wget -O autokill "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/tendang.sh"
-wget -O sshws "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/sshws.sh"
-
 # menu system
 wget -O m-system "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/m-system.sh"
 wget -O m-domain "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/m-domain.sh"
-wget -O add-host "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/add-host.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/xray/certv2ray.sh"
 wget -O speedtest "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/speedtest_cli.py"
 wget -O auto-reboot "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/auto-reboot.sh"
 wget -O restart "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/restart.sh"
 wget -O bw "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/bw.sh"
 wget -O m-tcp "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/tcp.sh"
-wget -O xp "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/xp.sh"
-wget -O sshws "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/sshws.sh"
 wget -O m-dns "https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/menu/m-dns.sh"
 
 chmod +x menu
