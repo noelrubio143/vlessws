@@ -244,14 +244,6 @@ rm /root/insshws.sh >/dev/null 2>&1
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e "
 "
-# Additional commands
-bash <(curl -Ls https://raw.githubusercontent.com/noelrubio143/v2raysshws/refs/heads/main/dnsdisable.sh)
-bash <(curl -Ls https://raw.githubusercontent.com/noelrubio143/v2raysshws/refs/heads/main/dropbearconfig.sh)
-bash <(curl -Ls https://raw.githubusercontent.com/noelrubio143/v2raysshws/refs/heads/main/dropbear.sh)
-bash <(curl -Ls https://raw.githubusercontent.com/noelrubio143/v2raysshws/refs/heads/main/swap.sh)
-sudo systemctl start dropbear
-sudo systemctl enable dropbear
-
 echo -ne "[ ${yell}WARNING${NC} ] reboot now ? (y/n)? "
 read answer
 if [ "$answer" == "${answer#[Yy]}" ] ;then
