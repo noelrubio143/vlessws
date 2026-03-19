@@ -144,7 +144,7 @@ clear
     clear
     install ssh 
 echo -e "\e[33m-----------------------------------\033[0m"
-echo -e "$BGreen      Install NT SSH Websocket           $NC"
+echo -e "$BGreen      Install AMBERVPN SSH Websocket           $NC"
 echo -e "\e[33m-----------------------------------\033[0m"
 sleep 0.5
 clear
