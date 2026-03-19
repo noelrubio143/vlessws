@@ -311,26 +311,9 @@ sleep 0.5
 echo -e "$yell[SERVICE]$NC Restart All service SSH & OVPN"
 /etc/init.d/nginx restart >/dev/null 2>&1
 sleep 0.5
-echo -e "[ ${green}ok${NC} ] Restarting nginx"
-/etc/init.d/openvpn restart >/dev/null 2>&1
-sleep 0.5
-echo -e "[ ${green}ok${NC} ] Restarting cron "
-/etc/init.d/ssh restart >/dev/null 2>&1
-sleep 0.5
-echo -e "[ ${green}ok${NC} ] Restarting ssh "
-/etc/init.d/dropbear restart >/dev/null 2>&1
-sleep 0.5
 echo -e "[ ${green}ok${NC} ] Restarting dropbear "
 /etc/init.d/fail2ban restart >/dev/null 2>&1
 sleep 0.5
-echo -e "[ ${green}ok${NC} ] Restarting fail2ban "
-/etc/init.d/stunnel4 restart >/dev/null 2>&1
-sleep 0.5
-echo -e "[ ${green}ok${NC} ] Restarting stunnel4 "
-/etc/init.d/vnstat restart >/dev/null 2>&1
-sleep 0.5
-echo -e "[ ${green}ok${NC} ] Restarting vnstat "
-/etc/init.d/squid restart >/dev/null 2>&1
 
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
