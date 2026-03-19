@@ -95,14 +95,13 @@ echo -e "\e[1;33m -------------------------------------------------\e[0m"
 echo -e "\e[1;34m                       MENU                       \e[0m"
 echo -e "\e[1;33m -------------------------------------------------\e[0m"
 echo -e   ""
-echo -e "\e[1;36m 1 \e[0m: Menu SSH"
-echo -e "\e[1;36m 2 \e[0m: Menu Vmess"
-echo -e "\e[1;36m 3 \e[0m: Menu Vless"
-echo -e "\e[1;36m 4 \e[0m: Menu Trojan"
-echo -e "\e[1;36m 5 \e[0m: Menu Shadowsocks"
-echo -e "\e[1;36m 6 \e[0m: Menu Setting"
-echo -e "\e[1;36m 7 \e[0m: Status Service"
-echo -e "\e[1;36m 8 \e[0m: Clear RAM Cache"
+echo -e "\e[1;36m 1 \e[0m: Menu Vmess"
+echo -e "\e[1;36m 2 \e[0m: Menu Vless"
+echo -e "\e[1;36m 3 \e[0m: Menu Trojan"
+echo -e "\e[1;36m 4 \e[0m: Menu Shadowsocks"
+echo -e "\e[1;36m 5 \e[0m: Menu Setting"
+echo -e "\e[1;36m 6 \e[0m: Status Service"
+echo -e "\e[1;36m 7 \e[0m: Clear RAM Cache"
 echo -e "\e[1;36m x \e[0m: Exit"
 echo -e   ""
 echo -e "\e[1;33m --------------------------------\e[0m"
@@ -115,14 +114,13 @@ echo -e   ""
 read -p " Select menu :  "  opt
 echo -e   ""
 case $opt in
-1) clear ; m-sshovpn ;;
-2) clear ; m-vmess ;;
-3) clear ; m-vless ;;
-4) clear ; m-trojan ;;
-5) clear ; m-ssws ;;
-6) clear ; m-system ;;
-7) clear ; running ;;
-8) clear ; clearcache ;;
+1) clear ; m-vmess ;;
+2) clear ; m-vless ;;
+3) clear ; m-trojan ;;
+4) clear ; m-ssws ;;
+5) clear ; m-system ;;
+6) clear ; running ;;
+7) clear ; clearcache ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu ;;
 esac
