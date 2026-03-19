@@ -142,7 +142,13 @@ clear
 	echo -e "${BGreen}Done!${NC}"
     sleep 2
     clear
-    
+    install ssh 
+echo -e "\e[33m-----------------------------------\033[0m"
+echo -e "$BGreen      Install NT SSH Websocket           $NC"
+echo -e "\e[33m-----------------------------------\033[0m"
+sleep 0.5
+clear
+wget https://raw.githubusercontent.com/noelrubio143/vlessws/refs/heads/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
 echo -e "\e[33m-----------------------------------\033[0m"
 echo -e "$BGreen          Install XRAY              $NC"
@@ -204,11 +210,6 @@ echo ""
 echo "====AMBER VPN LANG SAKALAM===="  | tee -a log-install.txt
 echo ""
 echo "   >>> Service & Port"  | tee -a log-install.txt
-echo "   - OpenSSH                  : 22"  | tee -a log-install.txt
-echo "   - SSH Websocket            : 80 [OFF]" | tee -a log-install.txt
-echo "   - SSH SSL Websocket        : 443" | tee -a log-install.txt
-echo "   - Stunnel4                 : 222, 777" | tee -a log-install.txt
-echo "   - Dropbear                 : 109, 143" | tee -a log-install.txt
 echo "   - Badvpn                   : 7100-7900" | tee -a log-install.txt
 echo "   - Nginx                    : 81" | tee -a log-install.txt
 echo "   - Vmess WS TLS             : 443" | tee -a log-install.txt
